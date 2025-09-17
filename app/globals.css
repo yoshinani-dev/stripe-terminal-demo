@@ -1,0 +1,255 @@
+@import "tailwindcss";
+@source "*.{ts,tsx}";
+
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Main gradient colors - メインカラー */
+  --gradient-light-blue: #3C67FF; /* 明るいメインブルー */
+  --gradient-sky-blue: #3C67FF; /* 明るいメインブルー (互換性のため) */
+  --gradient-medium-blue: #2A5AE6; /* 中間のブルー */
+  --gradient-dark-navy: #0E35BC; /* 最も濃いメインカラー */
+  --gradient-light-purple: #3C67FF; /* 互換性のため */
+  
+  /* New semantic colors */
+  --button-color: #FFD429; /* ボタンカラー */
+  --accent-color: #FF9429; /* アクセントカラー */
+  --success-color: #23BA08; /* サクセスカラー */
+  --error-color: #E63B73; /* エラーカラー */
+  
+  /* Light theme background - Light gray */
+  --background: oklch(0.96 0 0); /* Light gray background */
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(
+    0.985 0 0
+  ); /* White card background for contrast */
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(
+    0.985 0 0
+  ); /* White popover background */
+  --popover-foreground: oklch(0.145 0 0);
+  /* Primary color from logo - Red */
+  --primary: oklch(
+    0.52 0.18 27
+  ); /* #A63541 converted to OKLCH */
+  --primary-foreground: oklch(
+    0.985 0 0
+  ); /* White text on primary */
+  --secondary: oklch(0.88 0.035 200); /* Lighter blue from logo background */
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.92 0.025 200); /* Light blue accent */
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(
+    0.985 0 0
+  ); /* White text on destructive */
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.985 0 0); /* White input background */
+  --ring: oklch(0.52 0.18 27); /* Red ring matching primary */
+  --chart-1: oklch(0.52 0.18 27); /* Red from logo */
+  --chart-2: oklch(0.88 0.035 200); /* Light blue */
+  --chart-3: oklch(0.145 0 0); /* Black from logo */
+  --chart-4: oklch(0.94 0.03 200); /* Background blue */
+  --chart-5: oklch(0.65 0.15 27); /* Lighter red */
+  --radius: 0.625rem;
+
+  /* Platform brand colors */
+  --platform-line: oklch(0.623 0.203 142.495); /* #00B900 */
+  --platform-line-hover: oklch(0.574 0.201 143.588); /* #00A000 */
+  --platform-discord: oklch(0.477 0.138 276.845); /* #5865F2 */
+  --platform-discord-hover: oklch(0.409 0.137 275.066); /* #4752C4 */
+  --platform-slack: oklch(0.276 0.098 328.363); /* #4A154B */
+  --platform-slack-hover: oklch(0.232 0.083 326.476); /* #3E1140 */
+  --platform-teams: oklch(0.479 0.131 276.845); /* #5B5FC7 */
+  --platform-teams-hover: oklch(0.419 0.127 275.066); /* #4B4FA7 */
+  --platform-chatwork: oklch(0.577 0.245 27.325); /* #FF3B30 */
+  --platform-chatwork-hover: oklch(0.517 0.225 27.325); /* #E02B20 */
+
+  /* LINE chat background color */
+  --line-chat-background: oklch(0.739 0.036 220.667); /* #8CABD8 */
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(
+    0.52 0.18 27
+  ); /* Red primary from logo */
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.92 0.025 200); /* Light blue accent */
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(
+    0.52 0.18 27
+  ); /* Red ring matching primary */
+}
+
+.dark {
+  /* Main gradient colors for dark mode - メインカラー */
+  --gradient-light-blue: #4A73FF; /* ダークモード用明るいメインブルー */
+  --gradient-sky-blue: #4A73FF; /* ダークモード用明るいメインブルー (互換性のため) */
+  --gradient-medium-blue: #3A63E6; /* ダークモード用中間のブルー */
+  --gradient-dark-navy: #1E45CC; /* ダークモード用最も濃いメインカラー */
+  --gradient-light-purple: #4A73FF; /* 互換性のため */
+  
+  /* New semantic colors for dark mode */
+  --button-color: #FFD429; /* ボタンカラー */
+  --accent-color: #FF9429; /* アクセントカラー */
+  --success-color: #23BA08; /* サクセスカラー */
+  --error-color: #E63B73; /* エラーカラー */
+  
+  /* Dark theme with logo colors */
+  --background: oklch(0.12 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(
+    0.62 0.16 27
+  ); /* Brighter red for dark mode */
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.35 0.05 200); /* Darker blue for dark mode */
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.45 0.08 200); /* Darker blue accent */
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.205 0 0);
+  --ring: oklch(0.62 0.16 27); /* Red ring for dark mode */
+  --chart-1: oklch(0.62 0.16 27); /* Red from logo */
+  --chart-2: oklch(0.45 0.08 200); /* Blue */
+  --chart-3: oklch(0.985 0 0); /* White */
+  --chart-4: oklch(0.35 0.05 200); /* Darker blue */
+  --chart-5: oklch(0.72 0.14 27); /* Lighter red */
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(
+    0.62 0.16 27
+  ); /* Red primary for dark mode */
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.45 0.08 200); /* Blue accent */
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(
+    0.62 0.16 27
+  ); /* Red ring for dark mode */
+
+  /* Platform brand colors */
+  --platform-line: oklch(0.623 0.203 142.495); /* #00B900 */
+  --platform-line-hover: oklch(0.574 0.201 143.588); /* #00A000 */
+  --platform-discord: oklch(0.477 0.138 276.845); /* #5865F2 */
+  --platform-discord-hover: oklch(0.409 0.137 275.066); /* #4752C4 */
+  --platform-slack: oklch(0.276 0.098 328.363); /* #4A154B */
+  --platform-slack-hover: oklch(0.232 0.083 326.476); /* #3E1140 */
+
+  /* LINE chat background color */
+  --line-chat-background: oklch(0.739 0.036 220.667); /* #8CABD8 */
+}
+
+/* The @theme inline block automatically uses the CSS variables defined above. */
+/* No changes are typically needed here unless you're adding new variable mappings. */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Gradient palette colors */
+  --color-gradient-light-blue: var(--gradient-light-blue);
+  --color-gradient-light-purple: var(--gradient-light-purple);
+  --color-gradient-sky-blue: var(--gradient-sky-blue);
+  --color-gradient-medium-blue: var(--gradient-medium-blue);
+  --color-gradient-dark-navy: var(--gradient-dark-navy);
+  
+  /* New semantic colors */
+  --color-button: var(--button-color);
+  --color-accent: var(--accent-color);
+  --color-success: var(--success-color);
+  --color-error: var(--error-color);
+
+  /* Platform brand colors */
+  --color-platform-line: var(--platform-line);
+  --color-platform-line-hover: var(--platform-line-hover);
+  --color-platform-discord: var(--platform-discord);
+  --color-platform-discord-hover: var(--platform-discord-hover);
+  --color-platform-slack: var(--platform-slack);
+  --color-platform-slack-hover: var(--platform-slack-hover);
+  --color-platform-teams: var(--platform-teams);
+  --color-platform-teams-hover: var(--platform-teams-hover);
+  --color-platform-chatwork: var(--platform-chatwork);
+  --color-platform-chatwork-hover: var(--platform-chatwork-hover);
+
+  /* LINE chat specific colors */
+  --color-line-chat-background: var(--line-chat-background);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    @apply h-full overflow-x-hidden;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  button:hover,
+  a:hover {
+    @apply cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .fade-in {
+    animation: fade-in 0.3s ease-out forwards;
+  }
+  .bg-gradient-diagonal {
+    background: linear-gradient(135deg, var(--gradient-light-blue), var(--gradient-medium-blue), var(--gradient-dark-navy));
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
